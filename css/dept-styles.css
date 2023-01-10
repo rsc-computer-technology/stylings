@@ -1,0 +1,231 @@
+/*
+Use this to style the dept. SharePoint site and Policy Manual.
+Author: Gordon Inman
+Date: 1/9/2023
+*/
+@import url('https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400;1,700&family=JetBrains+Mono:ital,wght@0,200;0,400;0,700;1,200;1,400;1,700&family=Noto+Serif:ital,wght@0,400;0,700;1,400;1,700&family=Roboto:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+:root {
+  --brown-100: hsl(36deg 8% 95%);
+  --brown-400: hsl(36deg 8% 75%);
+  --brown-800: hsl(36deg 8% 20%);
+  --shadow-light: hsl(220deg 5% 45%);
+  --shadow-dark: hsl(220deg 5% 15%);
+  --red-100: hsl(348deg 100% 97%);
+  --red-200: hsl(349deg 100% 90%);
+  --red-300: hsl(349deg 100% 85%);
+  --red-400: hsl(349deg 100% 73%);
+  --red-500: hsl(349deg 100% 65%);
+  --red-600: hsl(343deg 79% 44%);
+  --red-700: hsl(343deg 79% 36%);
+  --red-800: hsl(343deg 79% 28%);
+  --red-900: hsl(343deg 75% 20%);
+  --blue-100: hsl(190deg 50% 90%);
+  --blue-200: hsl(190deg 76% 88%);
+  --blue-300: hsl(189deg 75% 75%);
+  --blue-400: hsl(190deg 74% 59%);
+  --blue-500: hsl(190deg 100% 42%);
+  --blue-600: hsl(195deg 100% 39%);
+  --blue-700: hsl(201deg 100% 36%);
+  --blue-800: hsl(214deg 97% 27%);
+  --blue-900: hsl(239deg 30% 19%);
+  --gray-100: hsl(223deg 18% 95%);
+  --gray-200: hsl(223deg 20% 88%);
+  --gray-300: hsl(223deg 23% 82%);
+  --gray-400: hsl(223deg 23% 75%);
+  --gray-500: hsl(223deg 11% 63%);
+  --gray-600: hsl(222deg 11% 54%);
+  --gray-700: hsl(220deg 15% 43%);
+  --gray-800: hsl(220deg 29% 28%);
+  --gray-900: hsl(220deg 29% 10%);
+}
+body {
+  padding: 0;
+  margin: 0;
+}
+.page-wrapper {
+  background-color: var(--gray-100);
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
+  font-family: 'Atkinson Hyperlegible', Roboto, Verdana, sans-serif;
+  display: grid;
+  grid-template-columns: 3fr 1fr;
+  gap: 1rem;
+}
+header {
+  grid-column: span 2;
+}
+#chair {
+  grid-column: 1;
+}
+/* Page Navigation Menu Styles - START */
+.page-nav {
+  position: sticky;
+  top: 0;
+  background-color: var(--gray-200);
+  grid-column: span 2;
+}
+.top-menu {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  margin: 0;
+  padding: 0;
+  list-style:none;
+}
+.top-menu li {
+  padding:15px 20px;
+  color: var(--gray-900);
+  display:inline-block;
+  margin-right:-4px;
+  position:relative;
+  cursor:pointer;
+}
+.sub-menu {
+  padding:0;
+  position:absolute;
+  top:50px;
+  left:0;
+  width:200px;
+  display:none;
+  opacity:0;
+  visibility:hidden;
+  box-shadow: 2px 2px 4px var(--gray-700);
+  border-radius: 0 0 1rem 1rem;
+}
+.sub-menu li {
+  background: var(--gray-100);
+  display:block;
+  color:var(--gray-900);
+}
+.sub-menu li:last-of-type {
+  border-radius: 0 0 1rem 1rem;
+}
+.top-menu a, .sub-menu a {
+  text-decoration: none;
+  color: var(--gray-900);
+}
+.top-menu li:hover, .sub-menu li:hover, .top-menu li:hover > a, .sub-menu li:hover a {
+  background: var(--blue-700);
+  color: var(--gray-100);
+}
+.top-menu li:hover .sub-menu {
+  display:block;
+  opacity:1;
+  visibility:visible;
+}
+/* Page Navigation Menu Styles - END */
+
+.page-wrapper h1 {
+  border-bottom: thin solid var(--gray-900);
+  text-align: center;
+}
+.page-wrapper h1 + p {
+  text-align: center;
+}
+.page-wrapper :is(h1, h2, h3, h4, h5, h6) {
+  text-transform: uppercase;
+  font-family: 'Noto Serif', serif;
+  margin: .5rem;
+}
+/* Policy section styles - START */
+.policy-topic {
+  grid-column: span 2;
+  width: 100%;
+  display: grid;
+  grid-template-columns: auto 250px;
+  gap: .5rem;
+  margin: 1rem auto;
+  background-color: white;
+  color: var(--gray-900);
+  box-shadow: 2px 2px 6px var(--gray-500);
+}
+.policy-topic h2, .policy-topic div {
+  grid-column: span 2;
+}
+.policy-topic.with-image div {
+  grid-column: 1;
+}
+.policy-topic.with-image .image {
+  grid-column: 2;
+  grid-row: 2 / span 2;
+}
+.policy-topic h2, .policy-topic h3, .policy-topic p {
+  grid-column: span 2;
+}
+.policy-topic h2 {
+  margin: 0;
+  padding: 1rem 0 1rem 1rem;
+  background-color: var(--blue-900);
+  color: var(--blue-100);
+}
+.policy-topic p {
+  margin-left: 1rem;
+}
+.policy-topic a, .policy-topic a:visited {
+  color: var(--red-700);
+  text-decoration: none;
+}
+.policy-topic a:focus, .policy-topic a:hover {
+  outline: thin dashed var(--red-400);
+}
+
+.image .filler {
+  border: thin solid black;
+  grid-column: 2;
+  grid-row: 2;
+  height: 250px;
+  display: grid;
+  place-content: center;
+}
+.image figure {
+  margin: .5rem;
+}
+.image figcaption {
+  margin: .25rem 0;
+}
+/* Policy section styles - END */
+code {
+  font-family: 'JetBrains Mono', monospace;
+}
+p.indent {
+  margin: 0 0 0 1.5rem;
+}
+p.indent:last-of-type {
+  margin-bottom: 1rem;
+}
+.dept-note {
+  /* width: 20rem; */
+  word-wrap: break-word;
+  border: thin solid var(--blue-800);
+  background-color: var(--blue-200);
+  color: var(--blue-800);
+  margin: 1rem 0;
+  padding: .5rem;
+  border-radius: .35rem;
+  box-shadow: 2px 2px 4px var(--gray-600);
+}
+.dept-note h2 {
+  font-size: 1.25rem;
+}
+.jump-up {
+  position: fixed;
+  display: grid;
+  align-items: center;
+  right: 1rem;
+  bottom: 1rem;
+  width: 4rem;
+  height: 4rem;
+  text-align: center;
+  border: thin solid var(--red-900);
+  border-radius: .5rem;
+  background-color: var(--red-100);
+  box-shadow: 2px 2px 4px var(--gray-600);
+  margin: .5rem;
+}
+.jump-up a {
+  text-decoration: none;
+  text-transform: uppercase;
+  font-weight: bolder;
+  color: var(--red-800);
+}
